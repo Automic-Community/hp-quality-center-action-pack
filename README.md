@@ -59,11 +59,11 @@ Ex. **apm upload -force -u <Name>/<Department> -c <Client-id> -H <Host> -pw <Pas
 
 ###### Package/Action Documentation
 
-Please refer to the link for [package documentation](source/ae/DOCUMENTATION/PCK.AUTOMIC_CA_APM.PUB.DOC.xml)
+Please refer to the link for [package documentation](source/ae/DOCUMENTATION/PCK.AUTOMIC_HPUX.PUB.DOC.xml)
 
 ###### Third party licenses:
 
-The third-party library and license document reference.[Third party licenses](source/ae/DOCUMENTATION/PCK.AUTOMIC_CA_APM.PUB.LICENSES.xml)
+The third-party library and license document reference.[Third party licenses](source/ae/PCK.AUTOMIC_HPUX.PUB.LICENSES.xml)
 
 ###### Useful References
 
