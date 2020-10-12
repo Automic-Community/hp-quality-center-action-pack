@@ -1,0 +1,8 @@
+automationEngine: 
+  host: 127.0.0.1
+  port: ${PORT_AE}
+  client: 5
+  user: API
+  department: API
+  password: 123
+  packagesPath: PACKAGES

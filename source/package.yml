@@ -1,0 +1,7 @@
+# Package Build Configuration 
+name: PCK.AUTOMIC_HPUX
+
+source: ae
+  
+# binary object resource mapping will be defined here
+binaries:

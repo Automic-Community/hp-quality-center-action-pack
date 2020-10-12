@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<PRPT name="PCK.AUTOMIC_HPUX.PRV.PROMPTSET.QUERY">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType>STATIC</OH_SubType>
+</HEADER>
+<PROMPTDESIGNER state="1">
+<DESIGNER/>
+</PROMPTDESIGNER>
+<PROMPTSETXUI state="1">
+<XUIEDITOR><![CDATA[<dialog height="506" icon="PRPT" id="PRPTS" left="279" top="4" width="420"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Parameters"><properties><entry name="text">Parameters</entry><entry name="modifiable">0</entry></properties><text enabled="1" fill="b" focus="0" id="UC4RB_QUERY_SWs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Query installed Software" tooltip="Define the name of the sofware to query." upper="0" alt="1" multiline="0" multilineIcon="0"><oninputassistant><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/></oninputassistant><properties><entry listparam="C" name="reference" reftype="STATIC">UC_DATATYPE_STRING</entry><entry name="text">Query installed Software</entry><entry name="multiselect">0</entry><entry name="separator">;</entry><entry name="len"/><entry name="quotes"/><entry name="id">UC4RB_QUERY_SWs.00</entry><entry name="inputassistance">0</entry><entry name="enabled">0</entry><entry name="upper">0</entry><entry name="focus">0</entry><entry name="showaspassword">0</entry><entry name="tooltip">Define the name of the sofware to query.</entry><entry name="modifiable">1</entry><entry name="regex"/><entry name="required">0</entry><entry name="initvalue"/><entry name="xmlkey"/><entry name="xmlpath"/><entry name="multiline">0</entry><entry name="multilineIcon">0</entry><entry name="customfield"/><entry name="onchangereset"/><entry name="resetable">1</entry></properties></text><combo dynamic="0" enabled="1" fill="b" focus="0" id="UC4RB_LEVELs.00" nl="1" quotes="" text="Select by Level" tooltip="This parameter lets you list all software objects down to the specified level:      bundle: Shows only bundles      product: Shows only products      subproduct: Shows products and subproducts      fileset: Shows products, subproducts and filesets      file: Shows products, subproducts, filesets, files and numbers      category: Shows all categories of available patches for patches that have included category objects in their definition  Implementation: you may use the -l option at command line" alt="1" filter="0" strict="1" vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/><properties><entry listparam="C" name="reference" reftype="STATIC">UC4_RV.PM_HPUX.QUERY_LEVEL</entry><entry name="text">Select by Level</entry><entry name="quotes"/><entry name="id">UC4RB_LEVELs.00</entry><entry name="enabled">0</entry><entry name="focus">0</entry><entry name="tooltip">This parameter lets you list all software objects down to the specified level:
+
+    bundle: Shows only bundles
+
+    product: Shows only products
+
+    subproduct: Shows products and subproducts
+
+    fileset: Shows products, subproducts and filesets
+
+    file: Shows products, subproducts, filesets, files and numbers
+
+    category: Shows all categories of available patches for patches that have included category objects in their definition
+
+Implementation: you may use the -l option at command line</entry><entry name="dynamic">0</entry><entry name="modifiable">1</entry><entry name="initvalue"/><entry name="xmlkey"/><entry name="xmlpath"/><entry name="onchangereset"/><entry name="customfield"/><entry name="resetable">1</entry></properties></combo><text enabled="1" fill="b" focus="0" id="UC4RB_SHOWN_ATTR_LISTs.00" inputassistance="1" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Attributes shown" tooltip="list of attributes to show for the queried entities. The following values are available:      architecture: Describes the target system(s) supported by the product      category: type of software      mod_time: Production time for a distribution media      instance_id: Uniquely identifies this software product      title: Long/official name for the object      mode: permission mode of the file      mtime: last modification time for the file      owner: owner of file      path: full pathname for the file      revision: revision number for an object      size: size in bytes; reflets the size of all contained filesetzs      state: current state of the fileset  Implementation note: at the command line, the list of attributes are mapped to the parameter -x one_liner=&quot;&amp;UC4RB_SHOWN_ATTR_LIST#&quot;" upper="0" alt="1" multiline="0" multilineIcon="0"><oninputassistant><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/></oninputassistant><properties><entry listparam="C" name="reference" reftype="STATIC">UC_DATATYPE_STRING</entry><entry name="text">Attributes shown</entry><entry name="multiselect">0</entry><entry name="separator">;</entry><entry name="len"/><entry name="quotes"/><entry name="id">UC4RB_SHOWN_ATTR_LISTs.00</entry><entry name="inputassistance">1</entry><entry name="enabled">0</entry><entry name="upper">0</entry><entry name="focus">0</entry><entry name="showaspassword">0</entry><entry name="tooltip">list of attributes to show for the queried entities. The following values are available:
+
+    architecture: Describes the target system(s) supported by the product
+
+    category: type of software
+
+    mod_time: Production time for a distribution media
+
+    instance_id: Uniquely identifies this software product
+
+    title: Long/official name for the object
+
+    mode: permission mode of the file
+
+    mtime: last modification time for the file
+
+    owner: owner of file
+
+    path: full pathname for the file
+
+    revision: revision number for an object
+
+    size: size in bytes; reflets the size of all contained filesetzs
+
+    state: current state of the fileset
+
+Implementation note: at the command line, the list of attributes are mapped to the parameter -x one_liner=&quot;&amp;UC4RB_SHOWN_ATTR_LIST#&quot;</entry><entry name="modifiable">1</entry><entry name="regex"/><entry name="required">0</entry><entry name="initvalue"/><entry name="xmlkey"/><entry name="xmlpath"/><entry name="multiline">0</entry><entry name="multilineIcon">0</entry><entry name="customfield"/><entry name="onchangereset"/><entry name="resetable">1</entry></properties></text><text enabled="1" fill="b" focus="0" id="UC4RB_DEPOTs.00" inputassistance="0" len="" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Alternate depot" tooltip="Per default you can list all software that is packaged, stored, and ready to be installed.  Setting this option pointing to a depot lets you list software residing on the default depot on your local host.  Examples:      List the contents of a local tape depot, &amp;UC4RB_DEPOT# = /dev/rmt/0      List the products stored in the software depot on host1 located at /swmedia: &amp;UC4RB_DEPOT# = host1:/swmedia  Implementation note: -d @ &amp;UC4RB_DEPOT# can be used at command line. Option is only generated if parameter is not null.Per default you can list all software that is packaged, stored, and ready to be installed.  Setting this option pointing to a depot lets you list software residing on the default depot on your local host.  Examples:      List the contents of a local tape depot, &amp;UC4RB_DEPOT# = /dev/rmt/0      List the products stored in the software depot on host1 located at /swmedia: &amp;UC4RB_DEPOT# = host1:/swmedia  Implementation note: -d @ &amp;UC4RB_DEPOT# can be used at command line. Option is only generated if parameter is not null." upper="0" alt="1" multiline="0" multilineIcon="0"><oninputassistant><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/></oninputassistant><properties><entry listparam="C" name="reference" reftype="STATIC">UC_DATATYPE_STRING</entry><entry name="text">Alternate depot</entry><entry name="multiselect">0</entry><entry name="separator">;</entry><entry name="len"/><entry name="quotes"/><entry name="id">UC4RB_DEPOTs.00</entry><entry name="inputassistance">0</entry><entry name="enabled">0</entry><entry name="upper">0</entry><entry name="focus">0</entry><entry name="showaspassword">0</entry><entry name="tooltip">Per default you can list all software that is packaged, stored, and ready to be installed.
+
+Setting this option pointing to a depot lets you list software residing on the default depot on your local host.
+
+Examples:
+
+    List the contents of a local tape depot, &amp;UC4RB_DEPOT# = /dev/rmt/0
+
+    List the products stored in the software depot on host1 located at /swmedia: &amp;UC4RB_DEPOT# = host1:/swmedia
+
+Implementation note: -d @ &amp;UC4RB_DEPOT# can be used at command line. Option is only generated if parameter is not null.Per default you can list all software that is packaged, stored, and ready to be installed.
+
+Setting this option pointing to a depot lets you list software residing on the default depot on your local host.
+
+Examples:
+
+    List the contents of a local tape depot, &amp;UC4RB_DEPOT# = /dev/rmt/0
+
+    List the products stored in the software depot on host1 located at /swmedia: &amp;UC4RB_DEPOT# = host1:/swmedia
+
+Implementation note: -d @ &amp;UC4RB_DEPOT# can be used at command line. Option is only generated if parameter is not null.</entry><entry name="modifiable">1</entry><entry name="regex"/><entry name="required">0</entry><entry name="initvalue"/><entry name="xmlkey"/><entry name="xmlpath"/><entry name="multiline">0</entry><entry name="multilineIcon">0</entry><entry name="customfield"/><entry name="onchangereset"/><entry name="resetable">1</entry></properties></text><dynradiogroup enabled="1" fill="b" focus="0" id="UC4RB_REMOVE_COMMENTSs.00" nl="1" quotes="" text="Remove comments from output" tooltip="Depending upon with which parameters the query is executed, the output of swlist may contain empty lines and lines with comments (e.g. &quot;swlist -l fileset&quot; also reports products/subproducts separately). Default is to supress those lines." alt="1" required="0"><properties><entry listparam="C" name="reference" reftype="STATIC">PCK.ITPA_SHARED.PRV.VARA.YES_NO</entry><entry name="text">Remove comments from output</entry><entry name="quotes"/><entry name="id">UC4RB_REMOVE_COMMENTSs.00</entry><entry name="enabled">0</entry><entry name="focus">0</entry><entry name="tooltip">Depending upon with which parameters the query is executed, the output of swlist may contain empty lines and lines with comments (e.g. &quot;swlist -l fileset&quot; also reports products/subproducts separately). Default is to supress those lines.</entry><entry name="modifiable">1</entry><entry name="initvalue"/><entry name="xmlkey"/><entry name="xmlpath"/><entry name="customfield"/></properties></dynradiogroup></readpanel></dialog>]]></XUIEDITOR>
+</PROMPTSETXUI>
+<PROMPTSETDATA state="1">
+<DATAEDITOR><![CDATA[<PRPTS ontop="1"><PRPTBOX><UC4RB_QUERY_SWs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_QUERY_SW#" ReadFromTable="OPSE"></UC4RB_QUERY_SWs.00><UC4RB_LEVELs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_LEVEL#" ReadFromTable="OPSE">bundle</UC4RB_LEVELs.00><UC4RB_SHOWN_ATTR_LISTs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_SHOWN_ATTR_LIST#" ReadFromTable="OPSE">revision title</UC4RB_SHOWN_ATTR_LISTs.00><UC4RB_DEPOTs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_DEPOT#" ReadFromTable="OPSE"></UC4RB_DEPOTs.00><UC4RB_REMOVE_COMMENTSs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_REMOVE_COMMENTS#" ReadFromTable="OPSE">YES</UC4RB_REMOVE_COMMENTSs.00></PRPTBOX></PRPTS>]]></DATAEDITOR>
+</PROMPTSETDATA>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</PRPT>
+</uc-export>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_HPUX.PUB.DOC">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[With the HP-Unix action you can install, upgrade, remove and query installed packages on your UNIX host. 
+
+The actions are in general wrappers around the swinstall, swremove and swlist command line tools.
+
+=Rollback=
+
+The actions getting some system information don't need rollbacks, because they do not change the state of your system. Such a method is QUERY.
+
+Actions potentially changing the state of your system (INSTALL, REMOVE) do not have rollbacks defined yet.
+]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>
