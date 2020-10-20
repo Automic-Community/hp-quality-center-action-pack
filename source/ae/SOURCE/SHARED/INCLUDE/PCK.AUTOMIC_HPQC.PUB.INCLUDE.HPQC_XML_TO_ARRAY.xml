@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<JOBI name="PCK.AUTOMIC_HPQC.PUB.INCLUDE.HPQC_XML_TO_ARRAY">
+<HEADER state="1">
+<Title>Utility to convert xml to arrays</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[! Reading xml file and pleace it in one AE variable
+:SET &HND# = PREP_PROCESS_FILE (&AGENT#, "&UC4RB_HPQC_XML_PATH#",,"COL=NONE", 'UC_LOGIN=&LOGIN#')
+:SET &UC4RB_HPQC_XML_CONTENT# = ""
+:PROCESS &HND#
+:   SET &LINE# = GET_PROCESS_LINE(&HND#)
+:   SET &UC4RB_HPQC_XML_CONTENT# =  STR_CAT(&UC4RB_HPQC_XML_CONTENT#, &LINE#)
+:ENDPROCESS
+:CLOSE_PROCESS &HND#
+
+:DEFINE &UC4RB_HPQC_FIELD_NAMES#, string, 500
+:DEFINE &UC4RB_HPQC_FIELD_VALUES#, string, 500
+:DEFINE &IDX#, unsigned
+
+! Get to root node
+: SET &XMLDOCU# = XML_OPEN(STRING, &UC4RB_HPQC_XML_CONTENT#)
+:IF &XMLDOCU# <> ""
+! Get to Fields
+: SET &FIELDSHND# = XML_GET_FIRST_CHILD(&XMLDOCU#)
+: IF &FIELDSHND# <> ""
+! Get to Field
+: SET &FIELDHND# = XML_GET_FIRST_CHILD(&FIELDSHND#)
+: SET &IDX# = 1
+
+: WHILE &FIELDHND# <> ""
+!Retrieve field Name
+: SET &NAME# = XML_GET_ATTRIBUTE(&FIELDHND#,@Name)
+: SET &UC4RB_HPQC_FIELD_NAMES#[&IDX#] = &NAME#
+!Retrieve field value
+: SET &HND# = XML_GET_FIRST_CHILD(&FIELDHND#)
+: IF &HND# <> ""
+:    SET &TXT# = XML_GET_NODE_TEXT(&HND#)
+:    SET &UC4RB_HPQC_FIELD_VALUES#[&IDX#] = &TXT#
+: ENDIF
+: SET &IDX# = &IDX# + 1 
+: IF &IDX# > 500
+:    SET &FIELDHND# = ""
+: ELSE
+:    SET &FIELDHND# = XML_GET_NEXTSIBLING(&FIELDHND#)     
+: ENDIF
+:ENDWHILE
+: ENDIF
+: ENDIF
+
+:XML_CLOSE
+
+: PUBLISH &UC4RB_HPQC_FIELD_NAMES#[],,"TOP"
+: PUBLISH &UC4RB_HPQC_FIELD_VALUES#[] ,,"TOP"
+
+]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

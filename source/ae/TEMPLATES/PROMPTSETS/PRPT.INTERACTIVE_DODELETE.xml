@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<PRPT name="PRPT.INTERACTIVE_DODELETE">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<PROMPTDESIGNER state="1">
+<DESIGNER/>
+</PROMPTDESIGNER>
+<PROMPTSETXUI state="1">
+<XUIEDITOR><![CDATA[<dialog height="424" icon="PRPT" id="PRPTS" left="0" top="0" width="441"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Enter input to run delete action"><properties><entry name="text">Enter input to run delete action</entry><entry name="modifiable">0</entry></properties><dynradiogroup alt="1" enabled="1" fill="b" focus="" id="RUN_DELETEs.00" nl="1" text="Run Delete Action" tooltip="" required="0">
+      <properties>
+        <entry listparam="C,N" name="reference" reftype="STATIC">PCK.ITPA_SHARED.PRV.VARA.TRUE_FALSE</entry>
+        <entry name="xmlkey"/>
+        <entry name="xmlpath"/>
+        <entry name="text">Run Delete Action</entry>
+        <entry name="quotes"/>
+        <entry name="id">RUN_DELETEs.00</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip"/>
+        <entry name="modifiable">1</entry>
+        <entry name="customfield"/>
+      <entry name="initvalue"/>
+         </properties>
+    </dynradiogroup></readpanel></dialog>]]></XUIEDITOR>
+</PROMPTSETXUI>
+<PROMPTSETDATA state="1">
+<DATAEDITOR><![CDATA[<PRPTS ontop="1"><PRPTBOX><RUN_DELETEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="RUN_DELETE#" ReadFromTable="OPSE">true</RUN_DELETEs.00></PRPTBOX></PRPTS>]]></DATAEDITOR>
+</PROMPTSETDATA>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</PRPT>
+</uc-export>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_HPQC.PUB.DOC">
+<HEADER state="1">
+<Title>Package documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About Automic's HPQC Package
+================================
+Automate the HP Quality Center primarily defect management module through various actions. These actions are basic building blocks to achieve the give business goal.
+E.g. Create/modify/Delete/Query defects on HP Quality center. It also allows the test set execution on HP UFT and downloads the previously executed test set results.
+
+=Limitations=
+* Support HTTP not HTTPS.
+Limitation for the execution of Test Set on HP UFT.
+* Triggering the execution of Test Set on HP UFT will require an installation of HP UFT which is a separate product of HP.
+* In order to trigger the execution of test set, Windows Agent must be installed on the same machine where HP UFT is installed.
+* On Agent system Oracle JRE 1.7 32 bit java must be installed and java must be executable on the same.
+
+=Setup=
+
+* Oracle JRE 1.7 or higher must be installed on Agent OS and "java" must be executable on the same.
+* The Agent should be able to access the HP Quality Center in order to make http requests.
+* Modify the http timeout parameters as per your environment. By default "CONNECTION_TIMEOUT" is defined as 30000 and "REAS_TIMEOUT" is defined as 60000. Both are defined in milliseconds.
+* Define all the HP Quality Center URLs in the package configuration.
+* Following steps need to be performed to run PCK.AUTOMIC_HPQC.PUB.ACTION.TESTSET_EXECUTION
+1- Register the ALM Client using below steps
+   a. Close all the browser instances of HP ALM.
+   b. Open the ALM in the browser as administrator user then Go to ALM help and click on ALM tools
+   c. Move to ALM Client Registration
+   d. At the end of page click Register ALM and Register ALM Site Administration
+
+
+2- Apart from the above step user can register the OTAClient.dll and WebClient.dll using regsvr32 utility. (Though this step is optional, as DLL gets registered while HPQC installation)
+   a. To register the DLL open command prompt and run the following command ' REGSVR32 "PATH TO THE DLL FILE" ' as administrator user.
+   Both DLL's can be found at C:\ProgramData\HP\ALM-Client\<Version> on the UFT machine
+
+	  
+=Variables=
+PCK.AUTOMIC_HPQC.PRV.INCLUDE.HTTP_TIMEOUT_PARAMETERS
+HTTP timeout parameters can be configured in this variable. Values are defined in milliseconds. 0 means no timeout.
+
+PCK.AUTOMIC_HPQC.PRV.VARA.CONFIGURATION_HPQC_URLS
+		 This variable object can be used to configure server conection parameters where first column represents the key and second column represents the value.
+		 E.g. HPQC_12.0 (Key) http://192.168.112.31:8080 (Value)
+		 Alternatively, you can also use FQDN instead of IPAddress.
+
+=Actions=
+   
+Following actions are supported for HP Quality Center.
+  
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.LOGIN
+Action Description: Login of HP QC and get session.
+Login action will create the session cookies of HP QC for a user. One auth token for the generated session cookies will be published into one AE variable in an encrypted mode
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.LOGOUT
+Action Description: Logout from HP QC and kill the user HP QC session.
+Logout action will kill the session cookies of HP QC for a user. User will be logged out from HP QC.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.READ_DEFECT
+Action Description: Read defect action will read the HP QC defect details. The output of this action would be an xml having defect information. Path of this xml will be published into one AE variable.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.CREATE_DEFECT
+Action Description: Create defect action will create a defect into HP QC by entering defect information in an xml format. . The output of this action would be one AE variable having the newly created defect id.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.DELETE_DEFECT
+Action Description: Delete defect action will delete a defect from HP QC. User will be able to delete the defect information,provided defect exists and user has proper rights
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.UPDATE_DEFECT
+Action Description: Update defect action will update a defect information into HP QC by entering defect information in an xml format.
+User will be able to update the defect information,provided defect exists and user has proper rights
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.ADD_ATTACHMENT
+Action Description: Add attachment action will attach a file/directory from the specified path into defect in HP QC.
+Specified file/directory path should be accessible from the specified agent.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.ADD_COMMENT
+Action Description: Add comment action will attach a comment to an existing defect in HP QC.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.TESTSET_EXECUTION
+Action Description: Execute a test set in HP UFT by specifying test set folder path and test set name.
+HP UFT is a separate product than QC. So in order to run UFT related functionality, User has to install the UFT and required ALM add ins.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.GENERATE_TESTSET_REPORT
+Action Description: Generate a test set report in pdf format of previously executed test set in HP UFT by specifying test set folder path and test set name.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.QUERY_ENTITY
+Action Description: Query for entity resources action will support following query-able entities of the HP QC API and return the result as XML:
+Defects
+Requirements
+Tests
+Releases
+These values are case insensitive.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.GET_DOMAIN_PROJECT
+Action Description: This action will fetch the domain and project information of HP QC in an xml format. Output of this action will be an xml and path of this xml will be published into one AE variable.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.QUERY_DEFECT_FIELDS
+Action Description: This action will fetch all the configured fields for defect module in HPQC in an xml format. Output of this action will be an xml and path of this xml will be published into one AE variable.
+  
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.QUERY_DEFECT_EDITABLEFIELDS
+Action Description: This action will fetch all the fields that can be updated for the defect module in HPQC in an xml format. Output of this action will be an xml and path of this xml will be published into one AE variable.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.PROJECT_LIST
+Action Description: This action will fetch the project lookup list for the specified field in an xml format. Output of this action will be an xml and path of this xml will be published into one AE variable.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.PROJECT_USER_LIST
+Action Description: This action will fetch the project lookup list for project users in an xml format. Output of this action will be an xml and path of this xml will be published into one AE variable.
+
+* Action Name: PCK.AUTOMIC_HPQC.PUB.ACTION.QUERY_DEFECT_FILTERABLEFIELDS
+Action Description: This action retrieves the list of filterable fields for the defect which can be further used to define filter criteria to query certain defects. Output of this action will be an txt and path of this txt will be published into one AE variable.]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>

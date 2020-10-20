@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<JOBI name="PCK.AUTOMIC_HPQC.PRV.INCLUDE.HPQC_SETTING_AUTH_TOKENS">
+<HEADER state="1">
+<Title>Setting Auth token</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP",,"COL=DELIMITER", 'DELIMITER=*::=*')
+:PROCESS &HND#
+:   SET &KEY# = GET_PROCESS_LINE(&HND#,1)
+:   SET &VALUE# = GET_PROCESS_LINE(&HND#,2)
+:   IF &KEY# = "AUTH_TOKEN"
+:       SET &UC4RB_HPQC_AUTH_TOKEN# = "&VALUE#"
+:       PUBLISH &UC4RB_HPQC_AUTH_TOKEN#,,"TOP"
+:       TERM_PROCESS
+:   ENDIF
+:ENDPROCESS
+:CLOSE_PROCESS &HND#]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

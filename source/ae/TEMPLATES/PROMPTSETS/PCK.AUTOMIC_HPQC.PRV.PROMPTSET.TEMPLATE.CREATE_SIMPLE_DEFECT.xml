@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<PRPT name="PCK.AUTOMIC_HPQC.PRV.PROMPTSET.TEMPLATE.CREATE_SIMPLE_DEFECT">
+<HEADER state="1">
+<Title>Create Simple Defect Fields Promptset</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<PROMPTDESIGNER state="1">
+<DESIGNER/>
+</PROMPTDESIGNER>
+<PROMPTSETXUI state="1">
+<XUIEDITOR><![CDATA[<dialog height="424" icon="PRPT" id="PRPTS" left="60" top="0" width="607"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="PCK.AUTOMIC_HPQC.PRV.PROMPTSET.TEMPLATE.CREATE_SIMPLE_DEFECT"><properties><entry name="text">PCK.AUTOMIC_HPQC.PRV.PROMPTSET.TEMPLATE.CREATE_SIMPLE_DEFECT</entry><entry name="modifiable">0</entry></properties><text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_HPQC_SUMMARYs.00" inputassistance="0" len="512" multiline="0" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Summary" tooltip="Summery of defect" upper="0"><oninputassistant><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/></oninputassistant>
+         
+      <properties>
+        <entry listparam="C,N" name="reference" reftype="STATIC">UC_DATATYPE_STRING</entry>
+        <entry name="xmlkey"/>
+        <entry name="xmlpath"/>
+        <entry name="text">Summary</entry>
+        <entry name="multiline">0</entry>
+        <entry name="multilineIcon">0</entry>
+        <entry name="multiselect">0</entry>
+        <entry name="separator">;</entry>
+        <entry name="len">512</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_SUMMARYs.00</entry>
+        <entry name="regex"/>
+        <entry name="inputassistance">0</entry>
+        <entry name="enabled">0</entry>
+        <entry name="required">1</entry>
+        <entry name="upper">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="showaspassword">0</entry>
+        <entry name="tooltip">Summery of defect</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="customfield"/>
+        <entry name="onchangereset"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </text><text alt="1" enabled="1" fill="b" focus="0" id="UC4RB_HPQC_DESCRIPTIONs.00" inputassistance="0" len="3000" multiline="1" multilineIcon="0" nl="1" regex="" required="0" separator=";" showaspassword="0" text="Description" tooltip="Defect Description" upper="0"><oninputassistant><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptvalue|@value"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptinputassistance" target="_chainwindow"/></oninputassistant>
+         
+      <properties>
+        <entry listparam="C,N" name="reference" reftype="STATIC">UC_DATATYPE_STRING</entry>
+        <entry name="xmlkey"/>
+        <entry name="xmlpath"/>
+        <entry name="text">Description</entry>
+        <entry name="multiline">1</entry>
+        <entry name="multilineIcon">0</entry>
+        <entry name="multiselect">0</entry>
+        <entry name="separator">;</entry>
+        <entry name="len">3000</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_DESCRIPTIONs.00</entry>
+        <entry name="regex"/>
+        <entry name="inputassistance">0</entry>
+        <entry name="enabled">0</entry>
+        <entry name="required">1</entry>
+        <entry name="upper">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="showaspassword">0</entry>
+        <entry name="tooltip">Defect Description</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="customfield"/>
+        <entry name="onchangereset"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </text><datefield alt="1" enabled="1" fill="b" focus="0" id="UC4RB_HPQC_DETECTED_DATEs.00" max="" min="" nl="1" strict="1" text="Detected On Date" tooltip="">
+      <properties>
+        <entry listparam="D,TS" name="reference" reftype="STATIC">UC_DATATYPE_DATE</entry>
+        <entry name="calendar"/>
+        <entry name="key"/>
+        <entry name="text">Detected On Date</entry>
+        <entry alias="min" name="dmin"/>
+        <entry alias="max" name="dmax"/>
+        <entry name="doutputformat"/>
+        <entry name="id">UC4RB_HPQC_DETECTED_DATEs.00</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip"/>
+        <entry name="modifiable">1</entry>
+        <entry name="customfield">Defect detected date</entry>
+      <entry name="initvalue">2015-05-29</entry>
+         </properties>
+    </datefield><combo alt="1" dynamic="1" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_HPQC_DETECTED_BYs.00" nl="1" strict="1" text="Detected By" tooltip="User list" vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
+         
+         
+         
+      <properties>
+        <entry listparam="" name="reference" reftype="XML">PCK.AUTOMIC_HPQC.PRV.TEMPLATE.VARA.PROJECT_USERS_LIST</entry>
+        <entry name="xmlkey">&amp;UC4RB_HPQC_USERS_KEY_NAME#</entry>
+        <entry name="xmlpath">//Users/User/@Name</entry>
+        <entry name="text">Detected By</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_DETECTED_BYs.00</entry>
+        <entry name="dynamic">1</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip">User list</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="onchangereset"/>
+        <entry name="customfield"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </combo><combo alt="1" dynamic="1" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_HPQC_SEVERITYs.00" nl="1" strict="1" text="Severity" tooltip="Defect serverity list" vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
+         
+         
+         
+      <properties>
+        <entry listparam="" name="reference" reftype="XML">PCK.AUTOMIC_HPQC.PRV.TEMPLATE.VARA.PROJECT_LIST</entry>
+        <entry name="xmlkey">&amp;UC4RB_HPQC_LIST_KEY_NAME#</entry>
+        <entry name="xmlpath">//Lists/List[Name=&apos;&apos;Severity&apos;&apos;]/Items/Item/@value</entry>
+        <entry name="text">Severity</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_SEVERITYs.00</entry>
+        <entry name="dynamic">1</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip">Defect serverity list</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="onchangereset"/>
+        <entry name="customfield"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </combo></readpanel></dialog>]]></XUIEDITOR>
+</PROMPTSETXUI>
+<PROMPTSETDATA state="1">
+<DATAEDITOR><![CDATA[<PRPTS ontop="1"><PRPTBOX><UC4RB_HPQC_SUMMARYs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_SUMMARY#" ReadFromTable="OPSE"></UC4RB_HPQC_SUMMARYs.00><UC4RB_HPQC_DESCRIPTIONs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_DESCRIPTION#" ReadFromTable="OPSE"></UC4RB_HPQC_DESCRIPTIONs.00><UC4RB_HPQC_DETECTED_DATEs.00 haslist="0" msgnr="-1" msginsert="" altview="1" promptname="UC4RB_HPQC_DETECTED_DATE#" ReadFromTable="OPSE">&amp;$PHYS_DATE_YYYY_MM_DD_d#</UC4RB_HPQC_DETECTED_DATEs.00><UC4RB_HPQC_DETECTED_BYs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_DETECTED_BY#" ReadFromTable="OPSE"></UC4RB_HPQC_DETECTED_BYs.00><UC4RB_HPQC_SEVERITYs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_SEVERITY#" ReadFromTable="OPSE"></UC4RB_HPQC_SEVERITYs.00></PRPTBOX></PRPTS>]]></DATAEDITOR>
+</PROMPTSETDATA>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</PRPT>
+</uc-export>

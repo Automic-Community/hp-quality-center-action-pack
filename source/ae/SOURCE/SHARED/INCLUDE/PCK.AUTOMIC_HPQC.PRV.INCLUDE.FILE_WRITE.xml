@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<JOBI name="PCK.AUTOMIC_HPQC.PRV.INCLUDE.FILE_WRITE">
+<HEADER state="1">
+<Title>Writes string content into Agent's temp directory.</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:SET &HND# = CREATE_PROCESS(NEW)
+:SET &RET# = PUT_PROCESS_LINE(&HND#, &UC4RB_HPQC_STRCONTENT#)
+:SET &RETCODE# = WRITE_PROCESS(&HND#,"&AGENT_CURR_DIR#&UC4RB_HPQC_FILENAME#", "&AGENT#", "&LOGIN#", OVERWRITE)
+:CLOSE_PROCESS &HND#
+
+! validating if temp has created only then proceed otherwise abort the script
+:IF &RETCODE# <> 0
+:   STOP MSG, 50, "HEADER: Aborting this job because temp file has not been created! RETCODE &RETCODE#"
+:ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

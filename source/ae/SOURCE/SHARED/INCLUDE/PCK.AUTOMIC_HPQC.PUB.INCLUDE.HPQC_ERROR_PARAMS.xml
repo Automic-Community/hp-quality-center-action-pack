@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<JOBI name="PCK.AUTOMIC_HPQC.PUB.INCLUDE.HPQC_ERROR_PARAMS">
+<HEADER state="1">
+<Title>Error parms</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:DEFINE &UC4RB_HPQC_DESCRIPTION#, string
+:DEFINE &UC4RB_HPQC_SUMMARY#, string
+:DEFINE &UC4RB_HPQC_ATTACHMENT_PATH#,string
+:DEFINE &UC4RB_HPQC_ATTACHMENT_DATA#,string
+
+
+:SET &UC4RB_HPQC_ATTACHMENT_DATA#=""
+
+!------------- Setting Summary ----------------------------------
+:SET &NAME#   = SYS_ACT_ME_NAME()
+:SET &RUNNR# = SYS_ACT_ME_NR()
+
+:SET &UC4RB_HPQC_SUMMARY#="FAILED &NAME# "
+
+!-------------Setting Description  ------------------------------
+
+:   SET &UC4RB_HPQC_DESCRIPTION#="Job &NAME# [Run ID: &RUNNR# ] has been failed ,please see attachment for more details"
+
+!-------------Setting Attachment path ----------------------------
+:SET &NL# = UC_CRLF()
+
+:SET &HND# = PREP_PROCESS_REPORT("JOBS",, "REP",,"COL=NONE")
+:PROCESS &HND#   
+:   SET &LINE# = GET_PROCESS_LINE(&HND#)
+:   SET &UC4RB_HPQC_ATTACHMENT_DATA#= STR_CAT(&UC4RB_HPQC_ATTACHMENT_DATA#, &LINE#)
+:   SET &UC4RB_HPQC_ATTACHMENT_DATA#= STR_CAT(&UC4RB_HPQC_ATTACHMENT_DATA#, &NL#)
+:ENDPROCESS
+:CLOSE_PROCESS &HND#
+
+:SET &UC4RB_HPQC_FILENAME# = "Job-&RUNNR#.txt"
+
+:INC PCK.ITPA_SHARED.PRV.INCLUDE.CHANGE_DIRECTORY_TO_AGENT_BIN
+
+:SET &HND# = CREATE_PROCESS(NEW)
+:SET &RET# = PUT_PROCESS_LINE(&HND#, &UC4RB_HPQC_ATTACHMENT_DATA#)
+:SET &AGENT_CURR_DIR# = GET_VAR('UC_EX_PATH_BIN', &AGENT#)
+:SET &UC4RB_HPQC_ATTACHMENT_PATH#="&AGENT_CURR_DIR#/../temp/&UC4RB_HPQC_FILENAME#"
+:SET &RETCODE# = WRITE_PROCESS(&HND#,&UC4RB_HPQC_ATTACHMENT_PATH#, "&AGENT#", "&LOGIN#", OVERWRITE)
+:CLOSE_PROCESS &HND#
+
+! validating if temp has created only then proceed otherwise abort the script
+:IF &RETCODE# <> 0
+:   SET &UC4RB_HPQC_ATTACHMENT_PATH# = ""
+:   PRINT "Unable to create the attachment file"
+:ENDIF
+
+
+!-----------Publishing variables --------------------------------
+
+:PUBLISH &UC4RB_HPQC_DESCRIPTION#,,"TOP"
+:PUBLISH &UC4RB_HPQC_SUMMARY#,,"TOP"
+:PUBLISH &UC4RB_HPQC_ATTACHMENT_PATH#,,"TOP"
+]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[= Include name =
+PCK.AUTOMIC_HPQC.PUB.INCLUDE.HPQC_ERROR_PARAMS
+= General description =
+Publishes three varibles UC4RB_HPQC_DESCRIPTION, UC4RB_HPQC_SUMMARY and UC4RB_HPQC_ATTACHMENT_PATH and creates file for
+defect attachment which contains report for fail job.
+UC4RB_HPQC_DESCRIPTION is description for defect
+UC4RB_HPQC_SUMMARY is summary of a defect
+UC4RB_HPQC_ATTACHMENT_PATH contains path of the attachment
+= Inputs =
+= Behaviour =
+(see general description)
+= Outputs =
+It will publish three variables mainly UC4RB_HPQC_DESCRIPTION, UC4RB_HPQC_SUMMARY and UC4RB_HPQC_ATTACHMENT_PATH
+= Rollback =
+(none)
+= Logging =
+AE logs will be created/displayed in the AE report.
+Java logs will be created at \temp\hpqc.log under agent installation directory.
+= Example =
+(none)]]></DOC>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

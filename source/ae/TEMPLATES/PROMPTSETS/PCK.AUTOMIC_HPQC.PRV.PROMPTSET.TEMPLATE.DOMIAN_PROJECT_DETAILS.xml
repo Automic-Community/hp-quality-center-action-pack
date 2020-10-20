@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<uc-export clientvers="11.0.0-sprint.20141111.1610+build.2828">
+<PRPT name="PCK.AUTOMIC_HPQC.PRV.PROMPTSET.TEMPLATE.DOMIAN_PROJECT_DETAILS">
+<HEADER state="1">
+<Title>It will ask Domain and Project name</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<PROMPTDESIGNER state="1">
+<DESIGNER/>
+</PROMPTDESIGNER>
+<PROMPTSETXUI state="1">
+<XUIEDITOR><![CDATA[<dialog height="424" icon="PRPT" id="PRPTS" left="115" top="0" width="362"><readpanel fill="b" id="PRPTBOX" nl="1" scroll="v" text="Enter Domain Details"><properties><entry name="text">Enter Domain Details</entry><entry name="modifiable">0</entry></properties><combo alt="1" dynamic="1" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_HPQC_DOMAIN_NAMEs.00" nl="1" strict="1" text="Domain" tooltip="HPQC Domain Name List" vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
+         
+         
+         
+      <properties>
+        <entry listparam="" name="reference" reftype="XML">PCK.AUTOMIC_HPQC.PRV.TEMPLATE.VARA.DOMAIN_DETAILS</entry>
+        <entry name="xmlkey">&amp;UC4RB_HPQC_DOMAIN_KEY_NAME#</entry>
+        <entry name="xmlpath">//Domains/Domain/@Name</entry>
+        <entry name="text">Domain</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_DOMAIN_NAMEs.00</entry>
+        <entry name="dynamic">1</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip">HPQC Domain Name List</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="onchangereset"/>
+        <entry name="customfield"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </combo><combo alt="1" dynamic="1" enabled="1" fill="b" filter="0" focus="0" id="UC4RB_HPQC_PROJECT_NAMEs.00" nl="1" strict="1" text="Project" tooltip="HPQC Project Name List" vtype="i"><command request="_internal" target="_view" targetaction="setAttribute" targetparam="promptname|@id"/><command owner="_self" owneraction="setsource" ownerparam="src|_dialog@src"/><command owner="_promptsetcontainer" owneraction="getData" request="getpromptcombolist" target="_self" targetaction="setlist" wait="0"/>
+         
+         
+         
+      <properties>
+        <entry listparam="" name="reference" reftype="XML">PCK.AUTOMIC_HPQC.PRV.TEMPLATE.VARA.DOMAIN_DETAILS</entry>
+        <entry name="xmlkey">&amp;UC4RB_HPQC_DOMAIN_KEY_NAME#</entry>
+        <entry name="xmlpath">//Domains/Domain[@Name=&quot;&amp;UC4RB_HPQC_DOMAIN_NAME#&quot;]/Projects/Project/@Name</entry>
+        <entry name="text">Project</entry>
+        <entry name="quotes"/>
+        <entry name="id">UC4RB_HPQC_PROJECT_NAMEs.00</entry>
+        <entry name="dynamic">1</entry>
+        <entry name="enabled">0</entry>
+        <entry name="focus">0</entry>
+        <entry name="tooltip">HPQC Project Name List</entry>
+        <entry name="modifiable">1</entry>
+        <entry name="onchangereset"/>
+        <entry name="customfield"/>
+        <entry name="resetable">1</entry>
+      <entry name="initvalue"/>
+         </properties>
+    </combo></readpanel></dialog>]]></XUIEDITOR>
+</PROMPTSETXUI>
+<PROMPTSETDATA state="1">
+<DATAEDITOR><![CDATA[<PRPTS ontop="1"><PRPTBOX><UC4RB_HPQC_DOMAIN_NAMEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_DOMAIN_NAME#" ReadFromTable="OPSE"></UC4RB_HPQC_DOMAIN_NAMEs.00><UC4RB_HPQC_PROJECT_NAMEs.00 haslist="0" msgnr="-1" msginsert="" altview="0" promptname="UC4RB_HPQC_PROJECT_NAME#" ReadFromTable="OPSE"></UC4RB_HPQC_PROJECT_NAMEs.00></PRPTBOX></PRPTS>]]></DATAEDITOR>
+</PROMPTSETDATA>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</PRPT>
+</uc-export>

@@ -1,7 +1,14 @@
-# Package Build Configuration 
-name: PCK.AUTOMIC_HPUX
+# Package Build Configuration
+name: PCK.AUTOMIC_HPQC
 
 source: ae
-  
+
 # binary object resource mapping will be defined here
+# please add resources here
 binaries:
+  - object: RESOURCES/LIBS/PCK.AUTOMIC_HPQC.PRV.STORE
+    resources:
+      - name: HPQCTOOL 
+        type: BINARY
+        path: tools/target/hpqc-tool.jar
+        version: 1.0.0 
